@@ -1,0 +1,12 @@
+[Unit]
+Description=KVM Lab Port Forwarding
+After=network.target libvirtd.service
+Wants=libvirtd.service
+
+[Service]
+Type=oneshot
+ExecStartPre=/bin/sleep 5
+ExecStart=/usr/local/bin/kvm-lab-forward.sh
+
+[Install]
+WantedBy=multi-user.target
